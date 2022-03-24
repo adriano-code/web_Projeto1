@@ -17,15 +17,15 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "TURMAS")
 public class Turma {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
+
 	@Column
 	private String nomeDaDisciplina;
-	
+
 	@Column
 	private String sala;
-	
+
 }
