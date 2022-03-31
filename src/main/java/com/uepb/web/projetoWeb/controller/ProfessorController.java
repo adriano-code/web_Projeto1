@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.uepb.web.projetoWeb.domain.Aluno;
 import com.uepb.web.projetoWeb.domain.Professor;
+import com.uepb.web.projetoWeb.domain.Turma;
 import com.uepb.web.projetoWeb.service.ProfessorService;
 
 @RestController

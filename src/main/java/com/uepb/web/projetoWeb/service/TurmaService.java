@@ -5,6 +5,7 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.web.projetoWeb.domain.Turma;
 import com.uepb.web.projetoWeb.repository.TurmaRepository;
@@ -23,6 +24,7 @@ public class TurmaService {
 		return turmaRepository.findAll();
 	}
 
+	@Transactional
 	public Turma inserirTurma(Turma turma) {
 		return turmaRepository.save(turma);
 	}

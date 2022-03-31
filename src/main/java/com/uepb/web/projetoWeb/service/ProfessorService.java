@@ -35,7 +35,8 @@ public class ProfessorService {
 				obj.setNome(professor.getNome());
 			}
 			if (professor.getFormacao() != null) {
-				obj.setFormacao(professor.getFormacao());;
+				obj.setFormacao(professor.getFormacao());
+				;
 			}
 			if (professor.getMatricula() != null) {
 				obj.setMatricula(professor.getMatricula());
@@ -43,8 +44,10 @@ public class ProfessorService {
 			if (professor.getEmail() != null) {
 				obj.setEmail(professor.getEmail());
 			}
+
 			return professorRepositry.save(obj);
 		}
+
 		return null;
 	}
 

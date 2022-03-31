@@ -21,7 +21,7 @@ public class TurmaController {
 
 	@Autowired
 	private TurmaService turmaService;
-	
+
 	@GetMapping
 	public List<Turma> buscarTurmas() {
 		return turmaService.buscarTurmas();
@@ -46,7 +46,5 @@ public class TurmaController {
 	public void deletarTurma(@PathVariable Long id) {
 		turmaService.deletarTurma(id);
 	}
-	
-	
 
 }
