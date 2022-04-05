@@ -16,7 +16,7 @@ public class ProfessorService {
 	private ProfessorRepository professorRepositry;
 
 	public Professor buscarProfessorPorId(Long id) {
-		return professorRepositry.findById(id).get();
+		return professorRepositry.findById(id).orElseThrow(null);
 	}
 
 	public List<Professor> buscarProfessores() {

@@ -1,42 +1,35 @@
 package com.uepb.web.projetoWeb.domain;
 
+import java.io.Serializable;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
-import javax.persistence.Table;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 @Data
-@NoArgsConstructor
-@AllArgsConstructor
 @Entity
-@Table(name = "PROJETOS")
-public class Projeto {
+public class Projeto implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column
 	private String nome;
 	
-	@Column
 	private String descricao;
 	
 	@OneToOne
-	@JoinColumn(name = "professor_id")
 	private Professor professor;
 
-	@ManyToOne
-	@JoinColumn(name = "aluno_id")
-	private Aluno aluno;
+	@OneToMany
+	private List<Aluno> alunos;
 }

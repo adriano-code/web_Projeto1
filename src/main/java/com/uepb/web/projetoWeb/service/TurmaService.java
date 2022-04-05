@@ -5,7 +5,6 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import com.uepb.web.projetoWeb.domain.Turma;
 import com.uepb.web.projetoWeb.repository.TurmaRepository;
@@ -16,15 +15,15 @@ public class TurmaService {
 	@Autowired
 	private TurmaRepository turmaRepository;
 
+
 	public Turma buscarTurmaPorId(Long id) {
-		return turmaRepository.findById(id).get();
+		return turmaRepository.findById(id).orElseThrow(null);
 	}
 
 	public List<Turma> buscarTurmas() {
 		return turmaRepository.findAll();
 	}
 
-	@Transactional
 	public Turma inserirTurma(Turma turma) {
 		return turmaRepository.save(turma);
 	}

@@ -14,9 +14,10 @@ public class ProjetoService {
 
 	@Autowired
 	private ProjetoRepository projetoRepository;
+	
 
 	public Projeto buscarProjetoPorId(Long id) {
-		return projetoRepository.findById(id).get();
+		return projetoRepository.findById(id).orElseThrow(null);
 	}
 
 	public List<Projeto> buscarProjetos() {
@@ -25,6 +26,7 @@ public class ProjetoService {
 
 	public Projeto inserirProjeto(Projeto projeto) {
 		return projetoRepository.save(projeto);
+
 	}
 
 	public Projeto atualizarProjeto(Long id, Projeto projeto) {

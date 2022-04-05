@@ -3,6 +3,8 @@ package com.uepb.web.projetoWeb.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -12,9 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.uepb.web.projetoWeb.domain.Aluno;
 import com.uepb.web.projetoWeb.domain.Professor;
-import com.uepb.web.projetoWeb.domain.Turma;
 import com.uepb.web.projetoWeb.service.ProfessorService;
 
 @RestController
@@ -30,8 +30,8 @@ public class ProfessorController {
 		}
 		
 		@GetMapping("/{id}")
-		public Professor buscarProfessorPorId(@PathVariable Long id) { 
-			return professorService.buscarProfessorPorId(id);
+		public ResponseEntity<Professor> buscarProfessorPorId(@PathVariable Long id) { 
+			return new ResponseEntity<>(professorService.buscarProfessorPorId(id), HttpStatus.OK);
 		}
 		
 		@PostMapping
